@@ -1209,7 +1209,7 @@ margin: 25px 0 18px 0;
 display: none;
 }
 
-#content ul li input[type="checkbox"] {
+#content input[type="checkbox"] {
   margin-right: 5px;
   vertical-align: top;
 }
