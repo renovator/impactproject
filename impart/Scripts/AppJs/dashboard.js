@@ -14,6 +14,7 @@
 
  $('#executeID').click(function () {   
      $('#policyID').hide("slow");
+     // TODO: Use actual data.
      var val = Math.floor((Math.random() * 70) + 1);
      var m = (val * 1.3) / 100;
      var r = "Your Economic Policies and Action Just Recovered <span>" + val + " % </span> of N1.3 tr which amounts to <span>N" + m + " trillion </span>, hmm.. Looking Good. Which top areas will you invest this savings?";
