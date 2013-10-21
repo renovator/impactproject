@@ -40,7 +40,7 @@
             type: 'column'
         },
         title: {
-            text: 'Extractive Revenue Report and Difference in Dollars '
+            text: 'Oil & gas revenue as reported by companies and the CBN'
         }, xAxis: {
             categories: ['1999-2004', '2005', '2006-2008']
         },
@@ -61,7 +61,7 @@
             type: 'column'
         },
         title: {
-            text: 'Difference in Extractive Reporting By CBN and Companies'
+            text: 'Difference in oil & gas revenue as reported by companies and the CBN'
         }, xAxis: {
             categories: ['1999-2004', '2005', '2006-2008']
         },
@@ -107,7 +107,7 @@
             type: 'pie',
             name: 'Sectors',
             data: [
-                ['Electricty', 45.0],
+                ['Electricity', 45.0],
                 ['Food', 26.8],
                 {
                     name: 'Education',
