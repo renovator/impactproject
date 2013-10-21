@@ -662,9 +662,9 @@ transition:all .3s ease
 
 .shadowdrop { position:absolute; background-image:url("../img/shadow-bottom.png"); background-repeat:no-repeat; background-position:top center; height:42px; width:100%; top:0; z-index:40; }
 
-.shadow-large { position: relative; }
+/*.shadow-large { position: relative; }*/
 
-.shadow-large:before, .shadow-large:after { z-index: -1; position: absolute; content: ""; bottom: 9px; left: 10px; width: 50%; top: 80%; max-width:300px; -webkit-box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5); box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5); -webkit-transform: rotate(-3deg); -moz-transform: rotate(-3deg); -o-transform: rotate(-3deg); -ms-transform: rotate(-3deg); transform: rotate(-3deg); }
+.shadow-large:before, .shadow-large:after { z-index: -1; position: absolute; content: ""; bottom: 9px; left: 10px; width: 50%; top: 80%; max-width:300px;/* -webkit-box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5); box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);*/ -webkit-transform: rotate(-3deg); -moz-transform: rotate(-3deg); -o-transform: rotate(-3deg); -ms-transform: rotate(-3deg); transform: rotate(-3deg); }
 
 .shadow-large:after { -webkit-transform: rotate(3deg); -moz-transform: rotate(3deg); -o-transform: rotate(3deg); -ms-transform: rotate(3deg); transform: rotate(3deg); right: 10px; left: auto; }
 
@@ -698,7 +698,7 @@ a.link-more:hover { text-decoration: underline; }
 /*list-banners*/
 .list-banners { display: inline-block; margin: 0 0 30px 0; }
 
-.list-banners li { border: 1px solid #F3F3F3; display: inline-block; float: left; margin-left: -1px; margin-top: -1px; padding: 15px 23px; width: 109px; }
+.list-banners li { /*border: 1px solid #F3F3F3;*/ display: inline-block; float: left; margin-left: -1px; margin-top: -1px; padding: 15px 23px; width: 109px; }
 
 .list-banners li:first-child { }
 
