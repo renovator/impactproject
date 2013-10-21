@@ -47,7 +47,7 @@
             type: 'column'
         },
         title: {
-            text: 'Extractive Revenue Report and Difference in ($m) '
+            text: 'Extractive Revenue Report and Difference in Dollars '
         }, xAxis: {
             categories: ['1999-2004', '2005', '2006-2008']
         },
