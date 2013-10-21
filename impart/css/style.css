@@ -1213,3 +1213,11 @@ display: none;
   margin-right: 5px;
   vertical-align: top;
 }
+
+.tp-caption.start {
+    font-size: 16px; padding: 0px; margin: 0px; border: 0px; line-height: 20px; white-space: nowrap; opacity: 1; left: 1280px; top: 240px; -webkit-transform: rotate(0deg); visibility: visible;
+} 
+
+.fullwidthbanner {
+    color: white;
+}
