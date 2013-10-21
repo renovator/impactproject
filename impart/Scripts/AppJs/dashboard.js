@@ -1,7 +1,6 @@
 ﻿$('document').ready(function () {
     $('#execute').click(function () {
-        
-       
+               
     });
   
     $('#policyID').hide();
@@ -9,22 +8,17 @@
     $('#InvestmentID').hide();
     $('#finalchartid').hide();
 
-    
-
  $('#recoverid').click(function () {
-       
         $('#policyID').show("slow");
-
  });
- $('#executeID').click(function () {
-   
+
+ $('#executeID').click(function () {   
      $('#policyID').hide("slow");
      var val = Math.floor((Math.random() * 70) + 1);
      var m = (val * 1.3) / 100;
      var r = "Your Economic Policies and Action Just Recovered <span>" + val + " % </span> of N1.3 tr which amounts to <span>N" + m + " trillion </span>, hmm.. Looking Good. Which top areas will you invest this savings?";
      $('#resultarea').html(r);
      $('#actionResultID').show("slow");
-     
  });
  $('#Button1').click(function () {
      $('#actionResultID').hide("slow");
@@ -35,9 +29,7 @@
      $('#InvestmentID').hide('slow');
      $('#finalchartid').show("slow");
  });
- $('#Button3').click(function () {
-
-   
+ $('#Button3').click(function () {   
      $('#finalchartid').hide("slow");
  });
  
@@ -90,7 +82,7 @@
             plotShadow: false
         },
         title: {
-            text: 'Where Nigerians are investing in!!!!!!!!'
+            text: 'Where Nigerians are investing in?'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage}%</b>',
@@ -128,12 +120,6 @@
             ]
         }]
     });
-
-
-
-
-
-
 
     //$.ajax({
     //    url: "/ExtractiveMainIncomes/GetMainResult",
