@@ -1,6 +1,4 @@
 <?php
-    // https://github.com/anandkunal/ToroPHP
-    require_once('../../lib/ToroPHP/src/Toro.php');
 
     // http://www.codedevelopr.com/articles/reading-csv-files-into-php-array/
     function readCSV($csvFile){
