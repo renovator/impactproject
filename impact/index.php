@@ -295,4 +295,4 @@ N1.3 Trillion From Extractive Industries</b></h2></span>
       </div>
     </div>
     
-<?php require_once('./include/head.php'); ?>
+<?php require_once('./include/footer.php'); ?>
