@@ -15,7 +15,7 @@
                     </div>
                     <!--=========== menu ===============-->
                     <ul class="nav sf-menu">
-                      <li class=""><a href="">Home</a></li>
+                      <li class=""><a href="/">Home</a></li>
                       <li class=""><a href="about.php">About</a> </li>
                       <li class="action"><a href="details.php">Follow the Impact</a></li>
                       <li class="active"><a href="contact.php">Contact us</a></li>
