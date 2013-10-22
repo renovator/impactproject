@@ -37,9 +37,9 @@
                 <!--=========== menu ===============-->
                 <div class="nav-collapse nav-collapse_ collapse">
                   <ul class="nav sf-menu">
-                    <li class="active sub-menu"><a href="index.html">Home</a></li>
+                    <li class="active sub-menu"><a href="">Home</a></li>
                     <li class="sub-menu"><a href="about.html">About</a> </li>
-                    <li><a href="details.html">Follow the Impact</a></li>
+                    <li><a href="details.php">Follow the Impact</a></li>
                     <li><a href="contact.html">Contact us</a></li>
                   </ul>
                 </div>
