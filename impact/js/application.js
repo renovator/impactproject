@@ -1,154 +1,142 @@
-// NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
-// IT'S ALL JUST JUNK FOR OUR DOCS!
-// ++++++++++++++++++++++++++++++++++++++++++
-
-!function ($) {
-
-  $(function(){
-
-    var $window = $(window)
-
-    // Disable certain links in docs
-    $('section [href^=#]').click(function (e) {
-      e.preventDefault()
-    })
-
-    // side bar
-    $('.bs-docs-sidenav').affix({
-      offset: {
-        top: function () { return $window.width() <= 980 ? 290 : 210 }
-      , bottom: 270
-      }
-    })
-
-    // make code pretty
-    window.prettyPrint && prettyPrint()
-
-    // add-ons
-    $('.add-on :checkbox').on('click', function () {
-      var $this = $(this)
-        , method = $this.attr('checked') ? 'addClass' : 'removeClass'
-      $(this).parents('.add-on')[method]('active')
-    })
-
-    // add tipsies to grid for scaffolding
-    if ($('#gridSystem').length) {
-      $('#gridSystem').tooltip({
-          selector: '.show-grid > div'
-        , title: function () { return $(this).width() + 'px' }
-      })
+(function($){
+    function getRandomColor() {
+        var color = '';
+        while (!color.match(/(#[c-e].)([e-f][a-f])([9-c].)/)) {
+            color = '#' + Math.floor(Math.random() * (Math.pow(16,6))).toString(16);
+        }
+        return color;
     }
 
-    // tooltip demo
-    $('.tooltip-demo').tooltip({
-      selector: "a[rel=tooltip]"
-    })
+    if($('body.details').length > 0) {
+        $.get('/data.php', function(data) {
+            revData = JSON.parse(data);
+            var oilData = revData.oil,
+                gasData = revData.gas;
 
-    $('.tooltip-test').tooltip()
-    $('.popover-test').popover()
+            var government = [],
+                company = [];
+    
+            for(var i=3; i < 6; i++) {
+                government.push({x: 2009 + i-3, y: oilData[i][6]});
+                company.push({x: 2009 + i-3, y: oilData[i][7]});
+            }
 
-    // popover demo
-    $("a[rel=popover]")
-      .popover()
-      .click(function(e) {
-        e.preventDefault()
-      })
 
-    // button state demo
-    $('#fat-btn')
-      .click(function () {
-        var btn = $(this)
-        btn.button('loading')
-        setTimeout(function () {
-          btn.button('reset')
-        }, 3000)
-      })
+            var data = [
+                 {
+                   values: government,
+                   key: 'Government',
+                   color: '#ff7f0e'
+                 },
+                 {
+                   values: company,
+                   key: 'Company',
+                   color: '#2ca02c'
+                  } 
+            ];
 
-    // carousel demo
-    $('#myCarousel').carousel()
+            nv.addGraph(function() {  
+               var chart = nv.models.lineChart();
 
-    // javascript build logic
-    var inputsComponent = $("#components.download input")
-      , inputsPlugin = $("#plugins.download input")
-      , inputsVariables = $("#variables.download input")
+               chart.xAxis
+                   .axisLabel('Year')
+                   .tickFormat(d3.format('04d'));
+               chart.yAxis
+                   .axisLabel('Revenue (USD$’000)')
+                   .tickFormat(d3.format('05d'));
+               d3.select('#chart svg')
+                   .datum(data)
+                 .transition().duration(500)
+                   .call(chart);
+               nv.utils.windowResize(function() { d3.select('#chart svg').call(chart) }); 
 
-    // toggle all plugin checkboxes
-    $('#components.download .toggle-all').on('click', function (e) {
-      e.preventDefault()
-      inputsComponent.attr('checked', !inputsComponent.is(':checked'))
-    })
+               return chart;
+             });
 
-    $('#plugins.download .toggle-all').on('click', function (e) {
-      e.preventDefault()
-      inputsPlugin.attr('checked', !inputsPlugin.is(':checked'))
-    })
-
-    $('#variables.download .toggle-all').on('click', function (e) {
-      e.preventDefault()
-      inputsVariables.val('')
-    })
-
-    // request built javascript
-    $('.download-btn').on('click', function () {
-
-      var css = $("#components.download input:checked")
-            .map(function () { return this.value })
-            .toArray()
-        , js = $("#plugins.download input:checked")
-            .map(function () { return this.value })
-            .toArray()
-        , vars = {}
-        , img = ['glyphicons-halflings.png', 'glyphicons-halflings-white.png']
-
-    $("#variables.download input")
-      .each(function () {
-        $(this).val() && (vars[ $(this).prev().text() ] = $(this).val())
-      })
-
-      $.ajax({
-        type: 'POST'
-      , url: /\?dev/.test(window.location) ? 'http://localhost:3000' : 'http://bootstrap.herokuapp.com'
-      , dataType: 'jsonpi'
-      , params: {
-          js: js
-        , css: css
-        , vars: vars
-        , img: img
-      }
-      })
-    })
-  })
-
-// Modified from the original jsonpi https://github.com/benvinegar/jquery-jsonpi
-$.ajaxTransport('jsonpi', function(opts, originalOptions, jqXHR) {
-  var url = opts.url;
-
-  return {
-    send: function(_, completeCallback) {
-      var name = 'jQuery_iframe_' + jQuery.now()
-        , iframe, form
-
-      iframe = $('<iframe>')
-        .attr('name', name)
-        .appendTo('head')
-
-      form = $('<form>')
-        .attr('method', opts.type) // GET or POST
-        .attr('action', url)
-        .attr('target', name)
-
-      $.each(opts.params, function(k, v) {
-
-        $('<input>')
-          .attr('type', 'hidden')
-          .attr('name', k)
-          .attr('value', typeof v == 'string' ? v : JSON.stringify(v))
-          .appendTo(form)
-      })
-
-      form.appendTo('body').submit()
+        });
     }
-  }
-})
 
-}(window.jQuery)
+    $('#execute').click(function () {
+               
+    });
+  
+    $('#policyID').hide();
+    $('#actionResultID').hide();
+    $('#InvestmentID').hide();
+    $('#finalchartid').hide();
+
+ $('#recoverID').click(function (ev) {
+        ev.preventDefault();
+        $('#policyID').show("slow");
+ });
+
+ $('#executeID').click(function () {   
+     $('#policyID').hide("slow");
+     var val = Math.floor((Math.random() * 70) + 1);
+     var m = (val * 1.3) / 100;
+     var r = "Your Economic Policies and Action Just Recovered <span>" + val + " % </span> of N1.3 tr which amounts to <span>N" + m + " trillion </span>, hmm.. Looking Good. Which top areas will you invest this savings?";
+     $('#resultarea').html(r);
+     $('#actionResultID').show("slow");
+ });
+ $('#Button1').click(function () {
+     $('#actionResultID').hide("slow");
+     $('#InvestmentID').show('slow');
+ });
+ $('#Button2').click(function () {
+    
+     $('#InvestmentID').hide('slow');
+     $('#finalchartID').show("slow");
+ });
+ $('#Button3').click(function () {   
+     $('#finalchartID').hide("slow");
+ });
+
+    $('#containerPie').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Where Nigerians are investing in?'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+            percentageDecimals: 1
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    formatter: function () {
+                        return '<b>' + this.point.name + '</b>: ' + this.percentage + ' %';
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Sectors',
+            data: [
+                ['Electricity', 45.0],
+                ['Food', 26.8],
+                {
+                    name: 'Education',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Housing', 8.5],
+                ['Transportation', 6.2],
+                ['Health', 0.7]
+            ]
+        }]
+    });
+
+
+
+})(jQuery);

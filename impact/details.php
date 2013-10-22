@@ -1,77 +1,61 @@
 <?php require_once('./include/head.php'); ?>
-<body class="inner-page details">
-<div id="wrapper">
-  <!--==============================header=================================-->
-<div class="header-block clearfix">
-  <!-- open close panel -->
- 
-  <!-- topbar -->
-  <div id="topbar">
-    <div class="container clearfix">
-      <div class="row ">
-        <div class="span12">
-            <address class="vcard">
-            <a class="email" href="mailto:info@impactproject.com.ng"> info@impactproject.com.ng</a>
-            </address>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Logo & Navigation -->
-  <header>
-    <div class="container clearfix">
-      <div class="row ">
-        <div class="span12">
-          <!-- Logo -->
-          <h1 class="brand brand_"><a href="index.html"><img src="img/logo.jpg" alt=""></a></h1>
-          <!-- Navigation -->
-          <div class="navbar navbar_">
+<body class="inner details">
+<div class="head-wrapper">
+    <!--==============================header=================================-->
+  <div class="header-block clearfix">
+      <header>
+        <div class="container clearfix">
+          <div class="row ">
             <div class="container">
-              <!--=========== menu ===============-->
-              <div class="nav-collapse nav-collapse_ collapse">
-                <ul class="nav sf-menu">
-                  <li class="sub-menu"><a href="/">Home</a></li>
-                    <li class="sub-menu"><a href="about.html">About</a> </li>
-                    <li class="active sub-menu"><a href="details.php">Follow the Impact</a></li>
-                    <li class="sub-menu"><a href="contact.html">Contact us </a></li>
-                </ul>
+              <div class="span12">
+                <!-- Navigation -->
+                <div class="navbar">
+                    <div class="logo">
+                      <a href="index.php"><img src="images/logo.png" alt=""></a><span>impact</span>Project
+                    </div>
+                    <!--=========== menu ===============-->
+                    <ul class="nav sf-menu">
+                      <li class=""><a href="">Home</a></li>
+                      <li class=""><a href="about.php">About</a> </li>
+                      <li class="active action"><a href="details.php">Follow the Impact</a></li>
+                      <li class=""><a href="contact.php">Contact us</a></li>
+                    </ul>
+                </div>
               </div>
             </div>
           </div>
-          <div class="clear"></div>
         </div>
-      </div>
-    </div>
-  </header>
+      </header>
+  </div>
 </div>
 <!--==============================content=================================-->
 <section id="content">
   <div class="breadcrumb-wrapper">
     <div class="shadowdrop"></div>
     <div class="container">
-        
-
     </div>
   </div>
   <div class="container">
     <!-- Icons -->
     <div class="row">
-      <div class="span12">
+      <div class="col-md-12">
           <div class="section-2">
-      <h2> <span> Chart Below shows the difference in the reported Oil Revenue by CBN and Oil Companies</span></h2></div>
-         <div id="container" style="width: 100%; height: 400px;"></div>
-          <hr />
-          <div id="container2" style="width: 100%; height: 400px;"></div>
-              </div>      
+      <h1><span>The chart below shows the difference <br>in reported oil revenue ($'000) by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies</span></h1></div>
+         <div id="container">
+          <div id='chart'>
+            <svg style='height:500px'> </svg>
+          </div>
+        </div>
+       </div>      
     </div>
      <div id="row">
-         <div class="span12">
-             <div class="section-2">
-                 <h3>According to the NEITI 10 Years Report:: The Nation Is Yet to Recover About <br /><span>N1.3 Trillion From Extractive Industries</span></h3>
-    <h3>Take Charge and Recover This Money?<br /><a id="recoverid" href="#" class="btn btn-large btn-success">GET STARTED NOW!</a></h3>
+         <div class="col-md-12">
+             <div class="section-2 questions">
+                 <h3>According to the <a href="http://neiti.org.ng/sites/default/files/pdf_uploads/NEITI-EITI-Core-Audit-Report-Oil-Gas-2009-2011-310113-New.pdf" target="_blank">NEITI 2009 to 2011 Audit Report</a>:<br> the nation is yet to recover about <span>₦1.3 trillion from extractive industries</span></h3>
+    <h3>Take charge and recover this money?<br /><a id="recoverID" href="#" class="btn btn-large btn-success">get started now!</a></h3>
 
              </div>
-             </div>
+         </div>
      </div>
       <div class="row" id="action">
          <div class="span12">
@@ -85,9 +69,9 @@
      
       <div class="row">
         <div class="span12">
-      <h2> As part of the Nigerian Goverment, what would you do to recover these funds?</h2>
+      <h2> As part of the Nigerian Government, what would you do to recover these funds?</h2>
          
-<ul style="list-style-type: none; font-size:medium; padding:10px; font-family:Arial">
+<ul>
             <li></li>
             <li>
                 <input id="1" type="checkbox" />Accountant General Of the Federation (AGF) should exercise greater management and control over ﬁnancial ﬂows</li>
@@ -105,7 +89,7 @@
                 <input id="Checkbox6" type="checkbox" />Natural gas industry requires its own laws and regulations</li>
 
         </ul>
-            <input id="executeID" type="button" value="ENFORCE YOUR DECISION.." class="btn btn-large btn-success" />
+            <input id="executeID" type="button" value="ENFORCE YOUR DECISION" class="btn btn-large btn-success" />
         </div>
       </div>
     </div>
@@ -142,37 +126,39 @@
      
       <div class="row">
         <div class="span12" style="font-size:medium">
-      <h2> <u>Show Your Economic Prowess. Which Top Four Sectors Would You Invest In?</u></h2>
-        <div id="healthdiv">
+        <h2>Show your economic prowess. Which top four sectors would you invest in?</h2>
+        <ul id="healthli">
+        <li>
             <input id="health" type="checkbox" />
             Health
-        </div>
-        <div>
-            <input id="Food" type="checkbox" />
+        </li>
+        <li>
+            <input id="food" type="checkbox" />
             Food
-        </div>
-        <div>
+        </li>
+        <li>
             <input id="housing" type="checkbox" />Housing
-        </div>
-        <div>
+        </li>
+        <li>
             <input id="transportation" type="checkbox" />Transportation
-        </div>
+        </li>
 
-        <div>
-            <input id="Electricity " type="checkbox" />Electricity 
-        </div>
-            <input id="Button2" type="button" value="Invest And See What Others Think" class="btn btn-large btn-success" />
+        <li>
+            <input id="electricity " type="checkbox" />Electricity 
+        </li>
+        </ul>
+            <input id="Button2" type="button" value="Invest and see what others think" class="btn btn-large btn-success" />
     </div>
         </div>
       </div>
     </div>
  
-   <div class="section-5 centre" id="finalchartid">
+   <div class="section-5 centre" id="finalchartID">
     <div class="container">
       <!-- Strip with button -->
       <div class="row">
         <div class="span12">
-          <h2>Overview Of What and Where Nigerians Want Improvement</h2>
+          <h2>Overview Of Where Nigerians Want Improvement</h2>
             <hr />
             <div id="containerPie"></div>
             <input id="Button3" type="button" value="THANKS" class="btn btn-large btn-success" />
