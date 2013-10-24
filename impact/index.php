@@ -71,8 +71,8 @@ Make your voice count<br> See where others want the recovered<br> funds to be fo
 <div class="action">
       <div class="container clearfix">
           <div id="calltoaction" class="section-1 clearfix" style="margin:10px">
-              <span><h4><b>According to the NEITI 10 Years Report: <br>The Nation Is Yet to Recover About 
-        N1.3 Trillion From Extractive Industries</b></h4></span>
+              <span><h4>According to the NEITI 10 Years Report: <br>The Nation Is Yet to Recover About 
+        N1.3 Trillion From Extractive Industries</h4></span>
         <a href="details.php" class="btn btn-large btn-success">Follow the Impact</a>
           </div>
         </div>

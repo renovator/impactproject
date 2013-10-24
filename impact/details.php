@@ -38,9 +38,18 @@
   <div class="container">
     <!-- Icons -->
     <div class="row">
+      <div class="col-md-12 toggle">
+        <select>
+            <option value="revenue-oil">Comparison of reported oil revenue</option>
+            <option value="difference-oil">Difference in oil revenue reports</option>
+            <option value="revenue-gas">Comparison of reported gas revenue</option>
+            <option value="difference-gas">Difference in gas revenue reports</option>
+        </select>
+      </div>
       <div class="col-md-12">
-          <div class="section-2">
-      <h1><span>The chart below shows the difference <br>in reported oil revenue ($'000,000) by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies</span></h1></div>
+          <div class="section-2 chart-title">
+             <h1>The chart below shows the difference <br>in reported oil revenue ($'000,000) by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies</h1>
+          </div>
          <div id="container">
           <div id='chart'>
             <svg style='height:500px'> </svg>

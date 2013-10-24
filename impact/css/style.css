@@ -214,6 +214,11 @@ ul {
   text-align: center;
 }
 
+#calltoaction h4,
+.questions h3 {
+  font-weight: normal;
+}
+
 .questions a {
   margin: 30px auto;
 }
@@ -252,4 +257,9 @@ section.team  {
 
 .centre .span12 {
   padding: 0 20px 40px;
+}
+
+.toggle {
+  padding: 40px 0 20px;
+  text-align: center;
 }

@@ -1,67 +1,124 @@
 (function($){
-    function getRandomColor() {
-        var color = '';
-        while (!color.match(/(#[c-e].)([e-f][a-f])([9-c].)/)) {
-            color = '#' + Math.floor(Math.random() * (Math.pow(16,6))).toString(16);
-        }
-        return color;
-    }
 
-    if($('body.details').length > 0) {
-        $.get('/data.php', function(data) {
-            revData = JSON.parse(data);
-            var oilData = revData.oil,
-                gasData = revData.gas;
+    function loadChart(type, title) {
+      if($('body.details').length > 0) {
 
-            var government = [],
-                company = [];
-    
-            for(var i=3; i < 6; i++) {
-                government.push({x: 2009 + i-3, y: Math.ceil(oilData[i][6]/1000)});
-                company.push({x: 2009 + i-3, y: Math.ceil(oilData[i][7]/1000)});
+          $.get('/data.php', function(data) {
+              revData = JSON.parse(data);
+              var oilData = revData.oil,
+                  gasData = revData.gas;
+
+              function genComparisonChart(revData, title) {
+                $('.chart-title h1').html(title);
+                var government = [],
+                    company = [];
+
+                for(var i=3; i < 6; i++) {
+                    government.push({x: 2009 + i-3, y: Math.ceil(revData[i][6]/1000)});
+                    company.push({x: 2009 + i-3, y: Math.ceil(revData[i][7]/1000)});
+                }
+
+                var data = [
+                     {
+                       values: government,
+                       key: 'Government',
+                       color: '#ff7f0e'
+                     },
+                     {
+                       values: company,
+                       key: 'Company',
+                       color: '#2ca02c'
+                      } 
+                ];
+
+                nv.addGraph(function() {  
+                   var chart = nv.models.multiBarChart()
+                         .barColor(d3.scale.category20().range())
+                         .margin({bottom: 100})
+                         .transitionDuration(300)
+                         .delay(0)
+                         .rotateLabels(45)
+                         .groupSpacing(0.1)
+                         ;
+
+                   chart.xAxis
+                       .axisLabel('Year')
+                       .tickFormat(d3.format('04d'));
+                   chart.yAxis
+                       .axisLabel('Revenue (USD$’000,000)')
+                       .tickFormat(d3.format('5d'));
+                   d3.select('#chart svg')
+                       .datum(data)
+                     .transition().duration(500)
+                       .call(chart);
+                   nv.utils.windowResize(function() { d3.select('#chart svg').call(chart) }); 
+
+                   return chart;
+                 });
+              }
+
+              function genDifferenceChart(revData, title) {
+                $('.chart-title h1').html(title);
+                var diff = [];
+
+                for(var i=3; i < 6; i++) {
+                    diff.push({x: 2009 + i-3, y: Math.ceil(revData[i][8]/1000)});
+                }
+
+                var data = [
+                     {
+                       values: diff,
+                       key: 'Difference',
+                       color: '#ff7f0e'
+                     }
+                ];
+
+                nv.addGraph(function() {  
+                   var chart = nv.models.multiBarChart()
+                         .barColor(d3.scale.category20().range())
+                         .margin({bottom: 100})
+                         .transitionDuration(300)
+                         .delay(0)
+                         .rotateLabels(45)
+                         .groupSpacing(0.1)
+                         ;
+
+                   chart.xAxis
+                       .axisLabel('Year')
+                       .tickFormat(d3.format('04d'));
+                   chart.yAxis
+                       .axisLabel('Revenue (USD$’000,000)')
+                       .tickFormat(d3.format('5d'));
+                   d3.select('#chart svg')
+                       .datum(data)
+                     .transition().duration(500)
+                       .call(chart);
+                   nv.utils.windowResize(function() { d3.select('#chart svg').call(chart) }); 
+
+                   return chart;
+                 });
+
             }
 
+            if(type=='revenue-oil')
+              genComparisonChart(revData.oil, 'The chart below shows a comparison of reported oil revenue ($&#40;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
+            if(type=='revenue-gas')
+              genComparisonChart(revData.gas, 'The chart below shows a comparison of reported gas revenue ($&#40;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
+            if(type=='difference-oil')
+              genDifferenceChart(revData.oil, 'The chart below shows the difference in reported oil revenue ($&#40;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
+            if(type=='difference-gas')
+              genDifferenceChart(revData.gas, 'The chart below shows the difference in reported gas revenue ($&#40;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
 
-            var data = [
-                 {
-                   values: government,
-                   key: 'Government',
-                   color: '#ff7f0e'
-                 },
-                 {
-                   values: company,
-                   key: 'Company',
-                   color: '#2ca02c'
-                  } 
-            ];
-
-            nv.addGraph(function() {  
-               var chart = nv.models.multiBarChart()
-                     .barColor(d3.scale.category20().range())
-                     .margin({bottom: 100})
-                     .transitionDuration(300)
-                     .delay(0)
-                     .rotateLabels(45)
-                     .groupSpacing(0.1)
-                     ;
-
-               chart.xAxis
-                   .axisLabel('Year')
-                   .tickFormat(d3.format('04d'));
-               chart.yAxis
-                   .axisLabel('Revenue (USD$’000,000)')
-                   .tickFormat(d3.format('5d'));
-               d3.select('#chart svg')
-                   .datum(data)
-                 .transition().duration(500)
-                   .call(chart);
-               nv.utils.windowResize(function() { d3.select('#chart svg').call(chart) }); 
-
-               return chart;
-             });
-
-        });
+          });
+      }
     }
+
+    loadChart('revenue-oil');
+
+    $('.toggle select').change(function(ev) {
+        var value = $(this).val();
+        loadChart(value);
+    });
 
 /* DEMO CODE for unimplemented prediction quiz */
 
