@@ -50,7 +50,7 @@
                    .tickFormat(d3.format('04d'));
                chart.yAxis
                    .axisLabel('Revenue (USD$’000,000)')
-                   .tickFormat(d3.format('05d'));
+                   .tickFormat(d3.format('5d'));
                d3.select('#chart svg')
                    .datum(data)
                  .transition().duration(500)
