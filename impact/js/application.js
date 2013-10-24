@@ -17,8 +17,8 @@
                 company = [];
     
             for(var i=3; i < 6; i++) {
-                government.push({x: 2009 + i-3, y: oilData[i][6]/1000});
-                company.push({x: 2009 + i-3, y: oilData[i][7]/1000});
+                government.push({x: 2009 + i-3, Math.ceil(y: oilData[i][6]/1000)});
+                company.push({x: 2009 + i-3, y: Math.ceil(oilData[i][7]/1000)});
             }
 
 
