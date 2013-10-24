@@ -40,7 +40,7 @@
     <div class="row">
       <div class="col-md-12">
           <div class="section-2">
-      <h1><span>The chart below shows the difference <br>in reported oil revenue ($'000) by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies</span></h1></div>
+      <h1><span>The chart below shows the difference <br>in reported oil revenue ($'000,000) by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies</span></h1></div>
          <div id="container">
           <div id='chart'>
             <svg style='height:500px'> </svg>

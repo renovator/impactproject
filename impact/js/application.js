@@ -17,8 +17,8 @@
                 company = [];
     
             for(var i=3; i < 6; i++) {
-                government.push({x: 2009 + i-3, y: oilData[i][6]});
-                company.push({x: 2009 + i-3, y: oilData[i][7]});
+                government.push({x: 2009 + i-3, y: oilData[i][6]/1000});
+                company.push({x: 2009 + i-3, y: oilData[i][7]/1000});
             }
 
 
@@ -49,7 +49,7 @@
                    .axisLabel('Year')
                    .tickFormat(d3.format('04d'));
                chart.yAxis
-                   .axisLabel('Revenue (USD$’000)')
+                   .axisLabel('Revenue (USD$’000,000)')
                    .tickFormat(d3.format('05d'));
                d3.select('#chart svg')
                    .datum(data)
