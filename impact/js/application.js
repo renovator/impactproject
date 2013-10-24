@@ -36,7 +36,14 @@
             ];
 
             nv.addGraph(function() {  
-               var chart = nv.models.lineChart();
+               var chart = nv.models.multiBarChart()
+                     .barColor(d3.scale.category20().range())
+                     .margin({bottom: 100})
+                     .transitionDuration(300)
+                     .delay(0)
+                     .rotateLabels(45)
+                     .groupSpacing(0.1)
+                     ;
 
                chart.xAxis
                    .axisLabel('Year')
@@ -55,6 +62,8 @@
 
         });
     }
+
+/* DEMO CODE for unimplemented prediction quiz */
 
     $('#execute').click(function () {
                
