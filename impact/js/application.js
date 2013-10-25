@@ -101,13 +101,13 @@
             }
 
             if(type=='revenue-oil')
-              genComparisonChart(revData.oil, 'The chart below shows a comparison of reported oil revenue ($&#40;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
+              genComparisonChart(revData.oil, 'The chart below shows a comparison of reported oil revenue ($&#39;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
             if(type=='revenue-gas')
-              genComparisonChart(revData.gas, 'The chart below shows a comparison of reported gas revenue ($&#40;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
+              genComparisonChart(revData.gas, 'The chart below shows a comparison of reported gas revenue ($&#39;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
             if(type=='difference-oil')
-              genDifferenceChart(revData.oil, 'The chart below shows the difference in reported oil revenue ($&#40;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
+              genDifferenceChart(revData.oil, 'The chart below shows the difference in reported oil revenue ($&#39;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
             if(type=='difference-gas')
-              genDifferenceChart(revData.gas, 'The chart below shows the difference in reported gas revenue ($&#40;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
+              genDifferenceChart(revData.gas, 'The chart below shows the difference in reported gas revenue ($&#39;000,000)<br> by the <a href="https://en.wikipedia.org/wiki/Central_bank_of_nigeria" target="_blank">CBN</a> and oil companies');
 
           });
       }
